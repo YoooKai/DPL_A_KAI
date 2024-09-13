@@ -10,12 +10,13 @@ Para la entrega de esta y las sucesivas tareas/prácticas que hagamos durante el
 Ya tengo una cuenta: https://github.com/YoooKai
 - Crear un repositorio en vuestro GitHub llamado DPL_A_nombre ( DPL_A_Alejandro )
 ![alt text](2024-09-13_16-54.png)
+![alt text](img/image-1.png)
 
  - Clonar el repositorio en local.
 
  Comando: ``git clone url``
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 ### CREACIÓN DEL ARCHIVO README (1 PUNTO)
 
@@ -23,19 +24,19 @@ Ya tengo una cuenta: https://github.com/YoooKai
 
 Comando: ``touch tarea1_1``
 
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 ### COMMIT INICIAL (1 PUNTO)
 
 Añadir al tarea1_1.md los  comandos utilizados hasta ahora y hacer un commit inicial con el mensaje commit inicial.
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 ### PUSH INICIAL (1 PUNTO)
 
 Subir los cambios al repositorio remoto
 
-![alt text](image-6.png)
+![alt text](img/image-6.png)
 
 
 ### IGNORAR ARCHIVOS (1 PUNTO)
@@ -43,24 +44,24 @@ Subir los cambios al repositorio remoto
 - Crear en el repositorio local un fichero llamado privado.txt.
 - Crear en el repositorio local una carpeta llamada privada.
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
 
 - Realizar los cambios oportunos para que tanto el archivo como la carpeta sean ignorados por git. ( Incluir capturas de pantalla )
 
-![alt text](image-9.png)
-![alt text](image-8.png)
+![alt text](img/image-9.png)
+![alt text](img/image-8.png)
 Comprobación:
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
 ### AÑADIR FICHERO 1.txt (1 PUNTO)
 
 Añadir 1.txt al repositorio local.
 
-![alt text](image-11.png)
+![alt text](img/image-11.png)
 ### CREAR EL TAG v0.1 (1 PUNTO)
 
 Crear un tag v0.1
-![alt text](image-12.png)
+![alt text](img/image-12.png)
 ### SUBIR EL TAG v0.1 (1 PUNTO)
 
 Subir los cambios al repositorio remoto.
@@ -69,25 +70,25 @@ Subir los cambios al repositorio remoto.
 2. ``git commit -m "actualizando"``
 3. ``git push``
 
-![alt text](image-13.png)
+![alt text](img/image-13.png)
  ### CONFIGURACIÓN Y USO SOCIAL DE  GITHUB (1 PUNTO)
 
 - Poner una foto en vuestro perfil de GitHub.
-![alt text](image-14.png)
+![alt text](img/image-14.png)
 - Poner el doble factor de autentificación en vuestra cuenta de GitHub.
-![alt text](image-15.png)
-![alt text](image-16.png)
-![alt text](image-17.png)
-![alt text](image-18.png)
-![alt text](image-19.png)
-![alt text](image-20.png)
+![alt text](img/image-15.png)
+![alt text](img/image-16.png)
+![alt text](img/image-17.png)
+![alt text](img/image-18.png)
+![alt text](img/image-19.png)
+![alt text](img/image-20.png)
 
 - Seguir los repositorios  de vuestros compañeros.
 
-![alt text](image-21.png)
+![alt text](img/image-21.png)
 - Añadir una estrella a los repositorios  del resto de tus compañeros.
-![alt text](image-23.png)
-![alt text](image-22.png)
+![alt text](img/image-23.png)
+![alt text](img/image-22.png)
 
 ### CREAR UNA TABLA (1 PUNTO)
 
