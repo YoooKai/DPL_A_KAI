@@ -9,7 +9,8 @@ Para la entrega de esta y las sucesivas tareas/prácticas que hagamos durante el
 
 Ya tengo una cuenta: https://github.com/YoooKai
 - Crear un repositorio en vuestro GitHub llamado DPL_A_nombre ( DPL_A_Alejandro )
-![alt text](image-1.png)
+![alt text](2024-09-13_16-54.png)
+
  - Clonar el repositorio en local.
 
  Comando: ``git clone url``
