@@ -2,7 +2,7 @@
 
 1. Abrir XAMPP
 
-<img src="img/11.png">
+<img src="./img/11.png">
 
 2. Encender:
 
