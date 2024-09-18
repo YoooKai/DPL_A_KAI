@@ -136,6 +136,9 @@ Crea una organización llamada orgdpl-tunombredeusuariodegithub ( ejemplo orgdpl
 
 ![alt text](img/2_15.png)
 
+Link a la Organización:
+https://github.com/orgdpl-YoooKai
+
 ### CREAR EQUIPOS 
 
 Crear dos equipos en la organización orgdpl-tunombredeusuariodegithub, uno llamado administradores con más permisos y otro colaboradores con menos permisos.
