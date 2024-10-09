@@ -33,3 +33,47 @@ De nuevo realizamos otra inseción modificando los datos, y de nuevo, abrimos el
 <img src="img/con/con99.png">
 <img src="img/con/1000.png">
 
+
+# Lectura de Datos
+En primer lugar, creamos un nuevo fichero, `leer.py`, y, como antes, realizamos la conexión con la base de datos.
+Ahora asignamos a una variable una consulta sql de select con los datos que queramos sacar de la tabla.
+
+`$con = mysqli_connect('localhost', 'root', '', 'PRUEBITA');`
+
+Y otra variable para mandar la consulta a la base de datos utilizando la instrucción `mysqli_query`. En este caso, le pasamos la conexión y la consulta:
+
+ `$result = mysqli_query($con, $sql);`
+
+ Por último, guardamos en otra variable la instrucción `mysqli_fetch_array`, la cual guarda la información en los índices numéricos del array resultante, también puede guardar la información en índices asociativos utilizando los nombres de los campos del resultado como claves.
+
+Se le puede pasar un parámetro opcional llamado resulttype. Este parámetro es una constante que indica qué tipo de array debiera generarse con la información de la fila actual. Los valores posibles para este parámetro son las constantes `MYSQLI_ASSOC`, `MYSQLI_NUM`, o `MYSQLI_BOTH`. 
+
+Ahora vamos a probar el `MYSQLI_NUM`.Las columnas son devueltas en el array teniendo un índice enumerado. 
+
+Al abrir el documento en el navegador en localhost, vemos que nos muestra el primer registro. Esto es porque necesitamos un bucle para mostrar todos.
+
+<img src="img/con/leer2.png">
+
+Con un bucle `do...while`
+
+<img src="img/con/leer3.png">
+
+Ahora vemos los dos registros que insertamos anteriormente:
+
+<img src="img/con/leer4.png">
+
+Ya que nos muestra todos los registros, vamos a cambiar el parámetro de tipo, esta vez, `MYSQLI_ASSOC`. COn este parámetro, las columnas son devueltas en el array teniendo el nombre del campo como índice del array. 
+
+<img src="img/con/leer6.png">
+<img src="img/con/leer5.png">
+
+Y ahora, cambiemos el parámetro a `MYSQLI_BOTH`. Con este, las columnas son devueltas en el array teniendo tanto un índice numérico y el nombre del campo como el índice asociativo. 
+
+<img src="img/con/leer7.png">
+<img src="img/con/leer8.png">
+
+Y ya, por último, es importante recordar que se debe cerrar la conexión, por lo que escribiremos al final del fichero `MYSQLI_CLOSE($con)`
+
+<img src="img/con/leer9.png">
+#ACTUALIZAR DATOS
+# BORRAR DATOS
