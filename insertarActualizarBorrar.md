@@ -76,4 +76,15 @@ Y ya, por último, es importante recordar que se debe cerrar la conexión, por l
 
 <img src="img/con/leer9.png">
 #ACTUALIZAR DATOS
+
+<img src="img/con/up1.png">
+<img src="img/con/up2.png">
+<img src="img/con/up3.png">
+<img src="img/con/up4.png">
+<img src="img/con/up5.png">
+<img src="img/con/up6.png">
 # BORRAR DATOS
+
+<img src="img/con/del1.png">
+<img src="img/con/del2.png">
+<img src="img/con/del3.png">
