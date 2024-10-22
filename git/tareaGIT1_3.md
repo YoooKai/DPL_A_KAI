@@ -15,6 +15,12 @@
 
 - Añadir la estructura básica de una web.
 
+<img src="img/1.png">
+
+
+```bash
+nano index.html
+```
  ```html
 <!DOCTYPE html>
 <html lang="es">
@@ -28,12 +34,17 @@
 </body>
 </html>
  ```
+<img src="img/2.png">
+
 - Crear un commit indicando que se crea el esqueleto básico del index.htm
 
 ```bash
 git add index.htm
 git commit -m "Se crea el esqueleto básico del index.htm"
 ```
+
+<img src="img/3.png">
+
 - Añadir el contenido al head, entre `<head>` y `</head>`.
 
 `nano index.html`
@@ -45,12 +56,17 @@ git commit -m "Se crea el esqueleto básico del index.htm"
     <meta name="author" content="Tu Nombre">
     <title>Blog Galpon</title>
 </head>
+
+<img src="img/4.png">
  ```
 - Crear un commit indicando que se añade la cabecera del index.htm
  ```bash
 git add index.htm
 git commit -m "Se añade la cabecera del index.htm"
 ```
+
+<img src="img/5.png">
+
 - Añadir el contenido al body, entre `<body>` y `</body>`
 ```html
 <body>
@@ -64,12 +80,16 @@ git commit -m "Se añade la cabecera del index.htm"
     </footer>
 </body>
 ```
+<img src="img/6.png">
+
 - Crear un commit indicando que se añade la estructura básica del body.
 
 ```bash
 git add index.htm
 git commit -m "Se añade la estructura básica del body"
 ```
+<img src="img/7.png">
+
 - Añadir el contenido de section, entre <section> y </section>
 ```html
 <section>
@@ -80,6 +100,8 @@ git commit -m "Se añade la estructura básica del body"
 </section>
 
 ```
+<img src="img/8.png">
+
 - Crear un commit indicando que se añade toda la estructura de la zona de posts.
 ```bash
 git add index.htm
@@ -89,7 +111,11 @@ git commit -m "Se añade toda la estructura de la zona de posts"
 
 ```bash
 touch style.css
+
+nano style.css
 ```
+<img src="img/99.png">
+
 - Añadir la siguiente información.
 ```css
 html, body {
@@ -107,11 +133,16 @@ body {
 }
 
 ```
+<img src="img/9.png">
+<img src="img/10.png">
+
 - Crear un commit indicando que se añaden las CSS de html y de body.
 ```bash
 git add style.css
 git commit -m "Se añaden el CSS de html y de body"
 ```
+<img src="img/11.png">
+
 - Añadir la siguiente información.
 ```css
 header, section, article, aside, footer {
@@ -147,20 +178,27 @@ footer {
 }
 
 ```
+
+<img src="img/12.png">
+
 - Crear un commit indicando que se añaden las CSS de varios elementos HTML5: header, section, article, aside y footer.
+
 ```bash
 git add style.css
 git commit -m "Se añaden el CSS de varios elementos HTML5: header, section, article, aside y footer"
 ```
+<img src="img/13.png">
+
 - Añadir en el directorio raíz de proyecto el logotipo que aparecerá en la barra lateral izquierda: logo.png
 
-```bash
-git add logo.png
-```
+<img src="img/14.png">
+
 - Crear un commit indicando que se añade el logotipo de Galpón.
 ```bash
 git commit -m "Se añade el logotipo de Galpón"
 ```
+<img src="img/15.png">
+
 - Añadir la siguiente información.
 ```css
 section {
@@ -169,12 +207,16 @@ section {
 }
 
 ```
+<img src="img/16.png">
+
 - Crear un commit indicando que se añaden las CSS de section.
 
 ```bash
 git add style.css
 git commit -m "Se añade CSS de section"
 ```
+<img src="img/17.png">
+
 - Añadir la siguiente información.
 ```css
 footer{
@@ -186,12 +228,17 @@ footer{
 }
 
 ```
+<img src="img/18.png">
+
 - Crear un commit indicando que se añaden las CSS del footer.
+
 ```bash
 git add style.css
 git commit -m "Se añaden las CSS del footer"
 
 ```
+<img src="img/19.png">
+
 - Añadir la siguiente información.
 ```css
 h1 {
@@ -204,94 +251,131 @@ a {
     text-decoration: none;
 }
 ```
+<img src="img/20.png">
+
 - Crear un commit indicando que se añaden las CSS del H1 y de los enlaces.
 ```bash
 git add style.css
 git commit -m "Se añaden las CSS del H1 y de los enlaces"
 ```
+<img src="img/21.png">
+
 - Crear una etiqueta de v1.0
 
 ```bash
 git tag v1.0
 
 ```
+
+<img src="img/22.png">
+
 - Crear una rama “desarrollo”. En esta rama de desarrollo vamos a realizar varias tareas:
 ```bash
 git checkout -b desarrollo
 
 ```
+
+<img src="img/23.png">
+
 - Crear un directorio de images y mover allí el logotipo logo.png.
 
 ```bash
-mkdir images
-mv logo.png images/
-
+mkdir img
+mv logo.png img/
 ```
+<img src="img/24.png">
+
 - Crear un commit indicando que se mueve el logotipo a la carpeta images.
+
 ```bash
-git add images/logo.png
+git add img/logo.png
 git commit -m "Se mueve el logotipo a la carpeta images"
 ```
+<img src="img/25.png">
+
+
 - Crear un directorio de CSS y mover allí las CSS style.css.
 ```bash
 mkdir css
 mv style.css css/
 ```
+
+<img src="img/26.png">
+
 - Crear un commit indicando que se mueve la CSS a la carpeta CSS.
 ```bash
 git add css/style.css
 git commit -m "Se mueve la CSS a la carpeta CSS"
 
 ```
-- Cambiar las referencias a la CSS en el index.htm y al logotipo logo.png en la CSS.
-```bash
-<link rel="stylesheet" href="css/style.css">
-<img src="images/logo.png" alt="Logo del Blog Galpon">
+<img src="img/27.png">
 
+- Cambiar las referencias a la CSS en el index.htm y al logotipo logo.png en la CSS.
+
+```html
+<link rel="stylesheet" href="css/style.css">
+<!-- codigo anterior !-->
+<div class="logo"><img src="img/logo.png"></div>
 ```
+<img src="img/28.png">
+
 - Crear un commit indicando que se cambian las referencias a las CSS y a las imágenes al reorganizarlas en directorios.
 ```bash
 git add index.html
 git commit -m "Se cambian las referencias a las CSS y a las imágenes al reorganizarlas en directorios"
-
 ```
+<img src="img/29.png">
+
 - Crear una rama “bugfix” a partir de la “master” para resolver una serie de fallos.
 ```bash
 git checkout master
 git checkout -b bugfix
 
 ```
+
+<img src="img/30.png">
+
 - Quitar los comentarios en las CSS de los dos punteados (empiezan por //border ).
-```
-# Eliminar los comentarios "//border" en el archivo CSS si existen
+```css
 
 .sidebar {
-    border-right: 2px dotted #ccc; /* Borde punteado a la derecha de la barra */
+    border-right: 2px dotted #ccc; 
 }
 
 footer {
-    border-top: 2px dotted #ccc; /* Borde punteado en la parte superior del footer */
+    border-top: 2px dotted #ccc; 
 }
 
 
 ```
+
+<img src="img/31.png">
+
 - Crear un commit indicando que introducen los punteados en la barra derecha y en el footer.
 ```bash
 git add css/style.css
 git commit -m "Se introducen los punteados en la barra derecha y en el footer"
-
 ```
+
+<img src="img/32.png">
+
+
 -  Introducir como título “Galpon”.
 ```html
 <title>Galpon</title>
 
 ```
+<img src="img/33.png">
+
 -  Crear un commit indicando que se introduce el título en la página.
 ```bash
 git add index.html
 git commit -m "Se introduce el título en la página"
 
 ```
+
+<img src="img/34.png">
+
 - Cambiar 2012 por 2014 en el footer. Quitar (c).
 
 ```html
@@ -300,12 +384,18 @@ git commit -m "Se introduce el título en la página"
 </footer>
 
 ```
+<img src="img/35.png">
+
 - Crear un commit indicando que se realizan pequeños ajustes en el footer.
+
 ```bash
 git add index.html
 git commit -m "Se realizan pequeños ajustes en el footer"
 
 ```
+<img src="img/36.png">
+
+
 - Crear una etiqueta de v1.1
 ```bash
 git tag v1.1
@@ -317,6 +407,10 @@ git checkout master
 git merge bugfix
 
 ```
+<img src="img/37.png">
+
+<img src="img/38.png">
+
 -  Borrar la rama “bugfix”.
 ```bash
 git branch -d bugfix
@@ -325,8 +419,12 @@ git branch -d bugfix
 ```bash
 git merge desarrollo
 ```
+
+<img src="img/39.png">
+
 - Crear una etiqueta de v1.2
 ```bash
 git tag v1.2
 
 ```
+<img src="img/40.png">
