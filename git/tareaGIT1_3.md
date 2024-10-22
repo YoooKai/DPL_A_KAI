@@ -178,39 +178,155 @@ git commit -m "Se añade CSS de section"
 - Añadir la siguiente información.
 ```css
 footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
     
 }
 
 ```
 - Crear un commit indicando que se añaden las CSS del footer.
-- Añadir la siguiente información.
+```bash
+git add style.css
+git commit -m "Se añaden las CSS del footer"
+
 ```
+- Añadir la siguiente información.
+```css
+h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
 ```
 - Crear un commit indicando que se añaden las CSS del H1 y de los enlaces.
-```
+```bash
+git add style.css
+git commit -m "Se añaden las CSS del H1 y de los enlaces"
 ```
 - Crear una etiqueta de v1.0
-```
+
+```bash
+git tag v1.0
+
 ```
 - Crear una rama “desarrollo”. En esta rama de desarrollo vamos a realizar varias tareas:
-```
+```bash
+git checkout -b desarrollo
+
 ```
 - Crear un directorio de images y mover allí el logotipo logo.png.
-- Crear un commit indicando que se mueve el logotipo a la carpeta images.
-- Crear un directorio de CSS y mover allí las CSS style.css.
-- Crear un commit indicando que se mueve la CSS a la carpeta CSS.
-- Cambiar las referencias a la CSS en el index.htm y al logotipo logo.png en la CSS.
-- Crear un commit indicando que se cambian las referencias a las CSS y a las imágenes al reorganizarlas en directorios.
-- Crear una rama “bugfix” a partir de la “master” para resolver una serie de fallos.
 
+```bash
+mkdir images
+mv logo.png images/
+
+```
+- Crear un commit indicando que se mueve el logotipo a la carpeta images.
+```bash
+git add images/logo.png
+git commit -m "Se mueve el logotipo a la carpeta images"
+```
+- Crear un directorio de CSS y mover allí las CSS style.css.
+```bash
+mkdir css
+mv style.css css/
+```
+- Crear un commit indicando que se mueve la CSS a la carpeta CSS.
+```bash
+git add css/style.css
+git commit -m "Se mueve la CSS a la carpeta CSS"
+
+```
+- Cambiar las referencias a la CSS en el index.htm y al logotipo logo.png en la CSS.
+```bash
+<link rel="stylesheet" href="css/style.css">
+<img src="images/logo.png" alt="Logo del Blog Galpon">
+
+```
+- Crear un commit indicando que se cambian las referencias a las CSS y a las imágenes al reorganizarlas en directorios.
+```bash
+git add index.html
+git commit -m "Se cambian las referencias a las CSS y a las imágenes al reorganizarlas en directorios"
+
+```
+- Crear una rama “bugfix” a partir de la “master” para resolver una serie de fallos.
+```bash
+git checkout master
+git checkout -b bugfix
+
+```
 - Quitar los comentarios en las CSS de los dos punteados (empiezan por //border ).
+```
+# Eliminar los comentarios "//border" en el archivo CSS si existen
+
+.sidebar {
+    border-right: 2px dotted #ccc; /* Borde punteado a la derecha de la barra */
+}
+
+footer {
+    border-top: 2px dotted #ccc; /* Borde punteado en la parte superior del footer */
+}
+
+
+```
 - Crear un commit indicando que introducen los punteados en la barra derecha y en el footer.
+```bash
+git add css/style.css
+git commit -m "Se introducen los punteados en la barra derecha y en el footer"
+
+```
 -  Introducir como título “Galpon”.
+```html
+<title>Galpon</title>
+
+```
 -  Crear un commit indicando que se introduce el título en la página.
+```bash
+git add index.html
+git commit -m "Se introduce el título en la página"
+
+```
 - Cambiar 2012 por 2014 en el footer. Quitar (c).
+
+```html
+<footer>
+    <p>Copyright 2024</p>
+</footer>
+
+```
 - Crear un commit indicando que se realizan pequeños ajustes en el footer.
+```bash
+git add index.html
+git commit -m "Se realizan pequeños ajustes en el footer"
+
+```
 - Crear una etiqueta de v1.1
+```bash
+git tag v1.1
+
+```
 - Llevar estos cambios a la rama “master”.
+```bash
+git checkout master
+git merge bugfix
+
+```
 -  Borrar la rama “bugfix”.
+```bash
+git branch -d bugfix
+```
 - Llevar los cambios de la rama “desarrollo” a la rama “master”. Resolver los conflictos, si existen.
+```bash
+git merge desarrollo
+```
 - Crear una etiqueta de v1.2
+```bash
+git tag v1.2
+
+```
