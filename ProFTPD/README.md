@@ -39,6 +39,7 @@ Debe aparecer como `active (running)`.
     cat /etc/passwd
     ```
 Los usuarios creados serán `proftpd` y `nogroup`.
+
 <img src="img/6.png">
 
 
@@ -165,6 +166,7 @@ Los usuarios creados serán `proftpd` y `nogroup`.
     - Puerto: `21`
 
 <img src="img/13.png">
+
 <img src="img/14.png">
 
 <img src="img/15.png">
