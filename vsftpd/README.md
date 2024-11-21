@@ -5,6 +5,7 @@
 Si has intentado instalar o configurar vsftpd previamente, elimina cualquier rastro con:
 
 `sudo apt remove --purge vsftpd`
+
 <img src="img/1.png">
 
 
