@@ -288,10 +288,10 @@ Al ser un certificado autofirmado, el navegador mostrará un aviso indicando que
 
 ---
 
-<img src="img/2.jpg">
+<img src="img/2.png">
 
-<img src="img/3.jpg">
+<img src="img/3.png">
 
 Historial de comandos:
 
-<img src="img/4.jpg">
+<img src="img/4.png">
