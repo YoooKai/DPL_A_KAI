@@ -4,8 +4,8 @@
 Este paso organiza los archivos del sitio web en directorios separados.
 
 ```bash
-sudo mkdir /var/www/prueba1.com/public
-sudo mkdir /var/www/prueba2.com/public
+sudo mkdir -p /var/www/prueba1.com/public
+sudo mkdir -p /var/www/prueba2.com/public
 ```
 - **`sudo`**: Da permisos de administrador para ejecutar el comando.
 - **`mkdir`**: Crea las carpetas.
