@@ -4,8 +4,8 @@
 Este paso organiza los archivos del sitio web en directorios separados.
 
 ```bash
-sudo mkdir -p /var/www/prueba1.com/public
-sudo mkdir -p /var/www/prueba2.com/public
+sudo mkdir /var/www/prueba1.com/public
+sudo mkdir /var/www/prueba2.com/public
 ```
 - **`sudo`**: Da permisos de administrador para ejecutar el comando.
 - **`mkdir`**: Crea las carpetas.
@@ -288,3 +288,10 @@ Al ser un certificado autofirmado, el navegador mostrará un aviso indicando que
 
 ---
 
+<img src="img/2.jpg">
+
+<img src="img/3.jpg">
+
+Historial de comandos:
+
+<img src="img/4.jpg">
