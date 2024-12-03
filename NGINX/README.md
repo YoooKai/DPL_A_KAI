@@ -15,7 +15,8 @@ apt install nginx
 systemctl status nginx
 ```
 - **`systemctl status nginx`**: Muestra el estado del servicio Nginx (si está activo, corriendo, detenido, etc.).
-
+- 
+<img src="img/1.png">
 ---
 
 ### 3. **Comprobar la configuración de Nginx**
