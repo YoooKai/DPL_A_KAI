@@ -1,171 +1,128 @@
 
 # Instalar certificado Let's Encrypt con certbot en ngink con host virtuales
-Aquí tienes los pasos para configurar un nuevo host virtual **empresa4** desde cero en Nginx e instalar un certificado SSL con Let's Encrypt usando Certbot:
 
-### **1. Crear el Directorio del Sitio Web**
-Crea el directorio donde se almacenarán los archivos del sitio de `empresa4` (podemos usar otro host que ya tengamos creado, pero yo crearé otro nuevo):
+### **Paso 1: Instalar Certbot (herramienta de Let's Encrypt)**
 
-```bash
-sudo mkdir -p /var/www/empresa4/html
-```
+1. **Agregar el repositorio de Certbot**:
+   El primer paso es añadir el repositorio oficial de Certbot a tu sistema. Esto permite instalar la versión más reciente de Certbot desde los repositorios de Ubuntu.
 
-Asigna permisos apropiados:
-```bash
-sudo chown -R $root:$root /var/www/empresa4/html
-sudo chmod -R 755 /var/www/empresa4
-```
+   ```bash
+   sudo add-apt-repository ppa:certbot/certbot
+   ```
 
-Crea un archivo de prueba en la raíz del sitio:
-```bash
-cd /var/www/empresa4/html
+2. **Actualizar los paquetes**:
+   Después de agregar el repositorio, es necesario actualizar la lista de paquetes disponibles en tu sistema para que se pueda instalar la versión más reciente de Certbot.
 
-touch index.html
+   ```bash
+   sudo apt update
+   ```
 
-sudo nano index.html
-```
+3. **Instalar Certbot y el plugin de NGINX**:
+   Ahora se instala **Certbot** y el plugin específico para **NGINX**, que se encarga de automatizar la configuración de SSL para tu servidor web NGINX.
 
-Escribimos lo que sea, por ejemplo:
+   ```bash
+   sudo apt install python3-certbot-nginx
+   ```
 
-`<h1>Hola, soy empresa4</h1>`
+   Aquí se utiliza **python3-certbot-nginx** en lugar de **python-cerbot-nginx**, ya que es la versión más actual compatible con Python 3.
 
----
+### **Paso 2: Configurar el servidor NGINX**
 
-### **2. Crear el Archivo de Configuración de Nginx**
-Crea un nuevo archivo de configuración para `empresa4`:
-```bash
-sudo nano /etc/nginx/sites-available/empresa4
-```
+1. **Editar la configuración del servidor NGINX**:
+   Accede al directorio donde se encuentran los archivos de configuración de NGINX. En este directorio puedes definir cómo se manejan las solicitudes HTTP y HTTPS para tu dominio.
 
-Agrega lo siguiente al archivo:
+   ```bash
+   cd /etc/nginx/sites-available
+   ```
 
-```nginx
-server {
-    listen 80;
-    server_name empresa4.com www.empresa4.com;
+   Luego, edita o crea un archivo de configuración para tu dominio, por ejemplo **example.conf**, con la siguiente estructura:
 
-    root /var/www/empresa4/html;
-    index index.html;
+   ```nginx
+   server {
+       listen 80;
+       listen [::]:80;
 
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
-```
+       root /usr/share/nginx/html;  # Este es el directorio donde se encuentra tu página web
+       index index.php index.html index.htm;
 
-Guarda y cierra el archivo.
+       server_name example.staging.keetup.com;  # Sustituye este dominio con el tuyo
+   }
+   ```
 
----
+   **Nota**: Asegúrate de usar la ruta correcta para el directorio `root` y de colocar el dominio adecuado en `server_name`.
 
-### **3. Habilitar el Host Virtual**
-Habilita el archivo de configuración creando un enlace simbólico en `sites-enabled`:
-```bash
-sudo ln -s /etc/nginx/sites-available/empresa4 /etc/nginx/sites-enabled/
-```
+2. **Crear el enlace simbólico**:
+   Para que la configuración que acabas de crear sea activada por NGINX, necesitas crear un enlace simbólico (un "link" hacia el archivo de configuración) en el directorio **sites-enabled**, que es donde NGINX carga las configuraciones activas.
 
-Verifica la configuración de Nginx:
-```bash
-sudo nginx -t
-```
+   ```bash
+   ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/
+   ```
 
-Reinicia Nginx:
-```bash
-sudo systemctl reload nginx
-```
+   Aquí, `example.conf` es el archivo de configuración que creaste para tu dominio.
 
----
+3. **Comprobar la configuración de NGINX**:
+   Antes de reiniciar NGINX, es recomendable verificar que no haya errores en la configuración.
 
-### **4. Configurar el Archivo `/etc/hosts`**
-Si estás configurando este host en un entorno local para pruebas, agrega el dominio a tu archivo `/etc/hosts`:
-```bash
-sudo nano /etc/hosts
-```
+   ```bash
+   sudo nginx -t
+   ```
 
-Añade las siguientes líneas:
-```
-127.0.0.1 empresa4.com www.empresa4.com
-```
+   Si todo está bien, el sistema mostrará un mensaje de éxito. Si hay algún error, NGINX te indicará dónde se encuentra.
 
-Guarda y cierra el archivo.
+4. **Recargar la configuración de NGINX**:
+   Si la configuración es correcta, puedes recargar NGINX para que se apliquen los cambios:
 
----
+   ```bash
+   sudo systemctl reload nginx
+   ```
 
-## Hasta aquí, es lo mismo que hemos hecho anteriormente.
+### **Paso 3: Habilitar el firewall para HTTPS**
 
-### **5. Instalar Certbot y Obtener el Certificado SSL**
-Si no tienes Certbot instalado, instálalo:
-```bash
-sudo apt update
-sudo apt install certbot python3-certbot-nginx
-```
+1. **Verificar el estado del firewall**:
+   Es importante asegurarse de que el firewall permita el tráfico en los puertos de NGINX, tanto para HTTP (puerto 80) como para HTTPS (puerto 443).
 
-Ejecuta Certbot para configurar SSL para `empresa4`:
-```bash
-sudo certbot --nginx
-```
+   ```bash
+   sudo ufw status
+   ```
 
-Sigue las instrucciones:
-1. Certbot detectará automáticamente tu configuración de Nginx.
-2. Selecciona el dominio (`empresa4.com` y `www.empresa4.com`) para el que deseas instalar el certificado.
-3. Certbot actualizará automáticamente el archivo de configuración de Nginx para usar SSL.
+2. **Permitir el tráfico para NGINX completo**:
+   Si no está habilitado el tráfico en el puerto 443 (HTTPS), puedes habilitarlo usando:
 
----
+   ```bash
+   sudo ufw allow 'Nginx Full'
+   ```
 
-### **6. Verificar el Certificado**
-Accede a `https://empresa4.com` en un navegador para verificar que el certificado está funcionando.
+   Esto abre tanto el puerto 80 (HTTP) como el puerto 443 (HTTPS) para que NGINX pueda servir contenido de manera segura.
 
-También puedes usar:
-```bash
-curl -I https://empresa4.com
-```
+3. **Verificar el estado del firewall de nuevo**:
+   Después de permitir el tráfico, puedes volver a comprobar que se hayan habilitado correctamente los puertos para NGINX.
 
----
+   ```bash
+   sudo ufw status
+   ```
 
-### **7. Configuración Final (Redirección a HTTPS)**
-Edita el archivo de configuración de Nginx para redirigir todo el tráfico HTTP a HTTPS:
-```bash
-sudo nano /etc/nginx/sites-available/empresa4
-```
+### **Paso 4: Obtener el certificado SSL con Certbot**
 
-Actualiza el contenido a:
+1. **Generar el certificado SSL**:
+   Para obtener el certificado SSL de **Let's Encrypt** para tu dominio, puedes ejecutar el siguiente comando:
 
-```nginx
-server {
-    listen 80;
-    server_name empresa4.com www.empresa4.com;
-    return 301 https://$host$request_uri; # Redirección a HTTPS
-}
+   ```bash
+   sudo certbot --nginx
+   ```
 
-server {
-    listen 443 ssl;
-    server_name empresa4.com www.empresa4.com;
+   Este comando le dice a Certbot que use el plugin de NGINX para obtener y configurar el certificado SSL automáticamente. Durante el proceso, Certbot:
 
-    ssl_certificate /etc/letsencrypt/live/empresa4.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/empresa4.com/privkey.pem;
+   - Detecta tu dominio.
+   - Solicita el certificado a Let's Encrypt.
+   - Configura automáticamente NGINX para que use HTTPS.
 
-    root /var/www/empresa4/html;
-    index index.html;
+2. **Seleccionar el dominio**:
+   Certbot te mostrará una lista de los dominios configurados en NGINX. Solo tienes que elegir el número correspondiente al dominio para el cual deseas generar el certificado.
 
-    location / {
-        try_files $uri $uri/ =404;
-    }
-}
-```
+3. **Redirigir todo el tráfico a HTTPS**:
+   Certbot te preguntará si deseas redirigir automáticamente el tráfico HTTP a HTTPS (lo cual es muy recomendable). Es importante que selecciones **Sí** para garantizar que todo el tráfico se cifre.
 
-Reinicia Nginx:
-```bash
-sudo systemctl reload nginx
-```
+4. **Verificación**:
+   Una vez completado el proceso, Certbot configurará el certificado SSL para tu dominio, y el servidor NGINX comenzará a servir tu sitio web a través de HTTPS. Ahora, al visitar tu sitio, deberías ver un candado verde junto a la URL en el navegador, lo que indica que la conexión es segura.
 
----
-
-### **8. Renovación Automática**
-Verifica que Certbot haya configurado la renovación automática:
-```bash
-sudo systemctl list-timers | grep certbot
-```
-
-Prueba la renovación manualmente:
-```bash
-sudo certbot renew --dry-run
-```
 
