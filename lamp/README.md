@@ -148,7 +148,7 @@ Existen dos formas de ejecutar código PHP con el servidor web Apache: utilizand
 ```sh
 sudo a2dismod php8.3
 ```
-<img src="img/14.png">
+<img src="img/15.png">
 
 2. **Instalamos PHP-FPM con el siguiente comando:**
 
@@ -156,7 +156,7 @@ sudo a2dismod php8.3
 sudo apt install php8.3-fpm
 ```
 
-<img src="img/15.png">
+<img src="img/16.png">
 
 3. **A continuación, habilitamos los módulos proxy_fcgi y setenvif:**
 
@@ -164,14 +164,14 @@ sudo apt install php8.3-fpm
 sudo a2enmod proxy_fcgi setenvif
 ```
 
-<img src="img/16.png">
+<img src="img/17.png">
 
 4. **Habilitamos el archivo de configuración de PHP-FPM:**
 
 ```sh
 sudo a2enconf php8.3-fpm
 ```
-<img src="img/17.png">
+<img src="img/18.png">
 
 5. **Finalmente, reiniciamos el servidor Apache para aplicar los cambios:**
 
@@ -179,9 +179,7 @@ sudo a2enconf php8.3-fpm
 sudo systemctl restart apache2
 ```
 
-<img src="img/18.png">
+<img src="img/19.png">
 
 Ahora, si actualizamos la página `info.php` en el navegador, deberíamos ver que la API del servidor ha cambiado de "Apache 2.0 Handler" a "FPM/FastCGI". Esto indica que el servidor web Apache ahora está pasando las solicitudes de PHP a PHP-FPM.
-
-<img src="img/19.png">
 
