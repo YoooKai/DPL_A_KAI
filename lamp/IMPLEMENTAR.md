@@ -127,9 +127,9 @@ Alias /phpmyadmin /usr/share/phpmyadmin
 </Directory>
 ```
 
-<img src="img/333.png>
+<img src="img/333.png">
 
-<img src="img/34.png>
+<img src="img/34.png">
 
 Habilita la configuración de phpMyAdmin:
 
@@ -137,7 +137,7 @@ Habilita la configuración de phpMyAdmin:
 sudo a2enconf phpmyadmin.conf
 sudo systemctl reload apache2
 ```
-<img src="img/31.png>
+<img src="img/31.png">
 
 ## Crear la base de datos en MariaDB
 
@@ -148,37 +148,37 @@ sudo mariadb -u root
 CREATE DATABASE lamp;
 ```
 
-<img src="img/32.png>
+<img src="img/32.png">
 
 
 Ahora vamos a nuestra página en infinityfree y accedemos a la base de datos donde dice MYSQL DATABASES
 
-<img src="img/35.png>
+<img src="img/35.png">
 
 Allí hacemos click en phpMyAdmin
 
-<img src="img/36.png>
+<img src="img/36.png">
 
 Se nos mostrará el panel de control de phpMyAdmin, donde debemos ingresar a la opción Export.
 
-<img src="img/37.png>
+<img src="img/37.png">
 
 
 En esta sección, simplemente debemos hacer clic en Go para exportar nuestra base de datos.
 
-<img src="img/38.png>
+<img src="img/38.png">
 
 Se nos descargará un archivo con la base de datos
 
 Ahora accedemos a e ingresamos la cuenta y la contraseña, que son las que creamos en la anterior tarea de Mariadb (antes usamos para crear el usuario el comando  `CREATE USER 'developer'@'localhost' IDENTIFIED BY '5t6y7u8i'`)
 
-<img src="img/39.png>
+<img src="img/39.png">
 
-<img src="img/40.png>
+<img src="img/40.png">
 
 Ahora Seleccionamos la base de datos que hemos creado previamente, en este caso lamp.
 
-<img src="img/41.png>
+<img src="img/41.png">
 
 Y le damos click a `Importar`.
 
@@ -188,4 +188,4 @@ Y por último seleccionamos `Importar` en la parte inferior de la página.
 
 Nos aparecerá un mensaje de éxito si todo ha ido bien.
 
-<img src="img/42.png>
+<img src="img/42.png">
