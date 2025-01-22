@@ -1,7 +1,6 @@
+#  servidor DNS
 
-### **Introducción**
-Estás configurando un servidor DNS con Bind9. Este servidor resolverá nombres de dominio dentro de tu red interna (`lamp.com`) y también permitirá realizar consultas inversas (convertir direcciones IP en nombres de dominio).
-
+Para configurar un servidor DNS con Bind9 se deben realizar los siguientes pasos:
 
 #### **1. Actualizar el sistema**
 Primero, asegúrate de que el sistema está actualizado:
